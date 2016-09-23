@@ -30,7 +30,8 @@ fout = open('ans1.txt','w')
 
 for i in range(0,500):
 	fout.write(str(Acol[i]))
-	fout.write(',')
+	if i != 499:
+		fout.write(',')
 fout.close
 
 
