@@ -1,2 +1,2 @@
 #!/bin/bash
-python easy.py
+python linear_regression.py
