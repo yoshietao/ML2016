@@ -1,2 +1,2 @@
 #!/bin/bash
-python model.py $1 $2
+python method2.py $1 $2
