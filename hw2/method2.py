@@ -53,7 +53,7 @@ for i in range(58):
 
 	tempvar = 0
 	for j in range(len1):
-		tempvar = tempvar + (float(class0[j][i]) - mean1[i])**2
+		tempvar = tempvar + (float(class1[j][i]) - mean1[i])**2
 	tempvar = tempvar/(len1-1)
 	variance1.append(tempvar)
 

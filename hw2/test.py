@@ -9,7 +9,8 @@ output   = sys.argv[3]
 def Pxc(x,miu,var):
 	pxc = 1
 	for i in range(1,58):
-		pxc = pxc*(float(1)/(2*math.pi)**0.5)*(float(1)/var[i]**0.5)*math.exp(-1*(x[i]-miu[i])**2/(2*var[i]))
+		if var[i] != 0 :
+			pxc = pxc*(float(1)/(2*math.pi)**0.5)*(float(1)/var[i]**0.5)*math.exp(-1*(x[i]-miu[i])**2/(2*var[i]))
 	return pxc
 
 data = []
