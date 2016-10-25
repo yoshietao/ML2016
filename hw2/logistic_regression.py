@@ -37,7 +37,7 @@ for i in range(58):
 	Gt.append(0)
 count = 0
 #print W
-print'--------------------Gradient descent-----------------------------------------'
+print'--------------------logistic regression-----------------------------------------'
 while True:
 	RMSE = 0
 	count = count + 1
@@ -59,7 +59,7 @@ while True:
 			dLdw[j] = dLdw[j] + (yhat - ypredict)*X[j]
 			Gt[j] = Gt[j] + dLdw[j]**2
 	print w,b,RMSE
-	if (RMSE < 200):
+	if (count == 99):
 		print w,b 
 		break
 	b = b + learningrate*dLdb/(Gtb**0.5)
