@@ -41,25 +41,29 @@ print'--------------------Gradient descent--------------------------------------
 while True:
 	RMSE = 0
 	count = count + 1
-	for i in range (4000):
-		yhat = float(data[i][58])
-		X = np.array([float(j) for j in data[i][0:58]])
+	for i in range (2000):
+		yhat = float(data[i+2000][58])
+		yhtest = float(data[i][58])
+		X = np.array([float(j) for j in data[i+2000][0:58]])
+		Xtest = np.array([float(j) for j in data[i][0:58]])
 		W = np.array(w)
 		#print X
 		ypredict = sigmoid(np.dot(X,W)+b)
-		if ypredict >= 0.5:
-			ypredict1 = 1
+		ytest = sigmoid(np.dot(Xtest,W)+b)
+		ytest1 = 0
+		if ytest >= 0.5:
+			ytest1 = 1
 		else:
-			ypredict1 = 0
+			ytest1 = 0
 		#print ypredict
-		RMSE = RMSE + abs(yhat - ypredict1)
+		RMSE = RMSE + abs(yhtest - ytest1)
 		dLdb = dLdb + (yhat - ypredict)
 		Gtb = Gtb + dLdb**2
 		#for j in range(58):
 		dLdw = dLdw + (yhat - ypredict)*X
 		Gt = Gt + dLdw**2
 	print w,b,RMSE
-	if (RMSE < 300):
+	if (RMSE == 149):
 		print w,b 
 		break
 	b = b + learningrate*dLdb/(Gtb**0.5)
