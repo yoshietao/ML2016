@@ -1,2 +1,2 @@
 #!/bin/bash
-python method2.py $1 $2
+python logistic_regression4000.py $1 $2
