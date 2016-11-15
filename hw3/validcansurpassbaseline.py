@@ -11,7 +11,7 @@ import sys
 path 	     = sys.argv[1]
 output_model = sys.argv[2]
 
-model = load_model('cindy.h5')
+model = load_model('epoch.h5')
 print 'load_model OK'
 
 batchsize = 100
