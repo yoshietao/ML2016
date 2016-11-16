@@ -85,7 +85,7 @@ while unlabel.shape[0] > 5000:
 
 	score = [0,0]
 	earlystopping = EarlyStopping(monitor = 'val_loss', patience = 2)
-	while score[1] < 0.85
+	while score[1] < 0.85:
 		model.fit(x_train, np.array(y_train), batch_size = 100, callbacks=[earlystopping], validation_data=(X_test, np.array(Y_test)), nb_epoch = 5, shuffle=True) 
 
 		score = model.evaluate(x_train, np.array(y_train))

@@ -7,6 +7,8 @@ from keras.callbacks import EarlyStopping
 import numpy as np
 import pickle
 import sys
+from keras import backend as K
+K.set_image_dim_ordering('th')
 
 path 	     = sys.argv[1]
 
@@ -45,22 +47,18 @@ Y_train = np.array(y_train)
 print Y_train.shape
 model = Sequential()
 
-model.add(Convolution2D(16, 3, 3, border_mode='same', input_shape=X_Train.shape[1:]))
-model.add(Activation('relu'))
-model.add(Convolution2D(16, 3, 3))
-model.add(Activation('relu'))
+model.add(Convolution2D(16, 3, 3, border_mode='same', input_shape=X_Train.shape[1:], activation = 'relu'))
+model.add(Convolution2D(16, 3, 3, activation = 'relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
-model.add(Convolution2D(32, 3, 3, border_mode='same'))
-model.add(Activation('relu'))
-model.add(Convolution2D(32, 3, 3))
-model.add(Activation('relu'))
+model.add(Convolution2D(32, 3, 3, border_mode='same',activation = 'relu'))
+model.add(Convolution2D(32, 3, 3,activation = 'relu'))
+
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
-model.add(Convolution2D(64, 3, 3, border_mode='same'))
-model.add(Activation('relu'))
+model.add(Convolution2D(64, 3, 3, border_mode='same', activation = 'relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 
